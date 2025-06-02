@@ -12,17 +12,17 @@ function generate_cert() {
 
 function install_gcov_tool() {
     #install gcovr which can output code coverage summary
-    sudo yum -y install python3-pip > /dev/null
-    sudo yum -y install python3-lxml > /dev/null
-    sudo pip3 install gcovr > /dev/null
+    apt-get install -y python3-pip > /dev/null
+    apt-get install -y python3-lxml > /dev/null
+    apt-get install -y gcovr> /dev/null
 }
 
 function install_cunit() {
-    sudo yum -y install CUnit > /dev/null
+    apt-get install -y libcunit1 libcunit1-doc libcunit1-dev > /dev/null
 }
 
 function install_go() {
-    sudo yum -y install golang
+    apt-get install -y golang
 }
 
 function build_babassl() {
@@ -72,7 +72,7 @@ function run_test_case() {
     ./tests/run_tests | tee -a xquic_test.log
 
     # "case test..."
-    sh ../scripts/case_test.sh | tee -a xquic_test.log
+    bash ../scripts/case_test.sh | tee -a xquic_test.log
 
 }
 
